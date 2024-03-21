@@ -1,0 +1,20 @@
+{
+  "name": "buy",
+  "content": {
+    "product": "Laptop",
+    "quantity": 50,
+    "categories": [
+      "Electronics",
+      "Computers"
+    ],
+    "details": {
+      "brand": "TechBrand",
+      "model": "TechModel X1",
+      "specifications": {
+        "processor": "Intel i7",
+        "ram": "16GB",
+        "storage": "512GB SSD"
+      }
+    }
+  }
+}

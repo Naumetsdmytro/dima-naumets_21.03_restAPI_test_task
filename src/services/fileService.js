@@ -2,7 +2,17 @@ const fs = require("fs").promises;
 const path = require("path");
 const FILES_DIR = path.join(__dirname, "../../data");
 
+const ensureDataDirectoryExists = async () => {
+  try {
+    await fs.mkdir(FILES_DIR, { recursive: true });
+  } catch (error) {
+    throw error;
+  }
+};
+
 const createFile = async (fileName, content) => {
+  await ensureDataDirectoryExists();
+
   const filePath = path.join(FILES_DIR, `${fileName}.json`);
   await fs.writeFile(filePath, JSON.stringify(content, null, 2));
 
@@ -23,6 +33,8 @@ const retrieveFile = async (fileName) => {
 };
 
 const updateFile = async (fileName, content) => {
+  await ensureDataDirectoryExists();
+
   const filePath = path.join(FILES_DIR, `${fileName}.json`);
   await fs.writeFile(filePath, JSON.stringify(content, null, 2));
 
